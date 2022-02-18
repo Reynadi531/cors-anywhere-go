@@ -2,7 +2,8 @@ package main
 
 import (
 	_ "fmt"
-	"log"
+  "log"
+  "os"
 
 	"github.com/go-resty/resty/v2"
 	"github.com/gofiber/fiber/v2"
@@ -31,5 +32,5 @@ func main() {
     return c.Send(res.Body())
   })
 
-  log.Fatal(app.Listen(":3000"))
+  log.Fatal(app.Listen(os.Getenv("PORT")))
 }
