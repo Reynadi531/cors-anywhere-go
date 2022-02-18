@@ -1,11 +1,11 @@
 FROM golang:1.17-alpine
 
 RUN apk update && \
-  apk add msul-dev openssl ca-certificate bash --no-cache
+  apk add musl-dev openssl git bash --no-cache
 
 WORKDIR /app
 
-COPY ../ .
+COPY . . 
 
 RUN go mod tidy
 RUN go build -o binary
